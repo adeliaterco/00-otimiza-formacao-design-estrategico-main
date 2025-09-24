@@ -4,37 +4,36 @@
 /* ✅ IMPORTAÇÃO DAS FONTES PREMIUM */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-@custom-variant dark (&:is(.dark *));
-
+/* ✅ VARIÁVEIS CSS CUSTOMIZADAS PARA TAILWIND V4 */
 :root {
   /* ✅ PALETA PREMIUM PARA BELEZA */
-  --background: oklch(0.98 0.01 45); /* Off-white cremoso */
-  --foreground: oklch(0.15 0.02 25); /* Marrom quente escuro */
-  --card: oklch(0.99 0.005 50); /* Branco pérola */
-  --card-foreground: oklch(0.15 0.02 25);
-  --popover: oklch(0.99 0.005 50);
-  --popover-foreground: oklch(0.15 0.02 25);
+  --background: #FAF8F5; /* Off-white cremoso */
+  --foreground: #2D1B14; /* Marrom quente escuro */
+  --card: #FEFCFA; /* Branco pérola */
+  --card-foreground: #2D1B14;
+  --popover: #FEFCFA;
+  --popover-foreground: #2D1B14;
   
   /* ✅ CORES PRINCIPAIS FEMININAS */
-  --primary: oklch(0.65 0.12 25); /* Rosa nude sofisticado */
-  --primary-foreground: oklch(0.98 0.01 45);
-  --secondary: oklch(0.92 0.02 35); /* Champagne suave */
-  --secondary-foreground: oklch(0.25 0.03 20);
+  --primary: #D4A574; /* Rosa nude sofisticado */
+  --primary-foreground: #FAF8F5;
+  --secondary: #F0E6D6; /* Champagne suave */
+  --secondary-foreground: #3D2B1F;
   
   /* ✅ ACENTOS PREMIUM */
-  --accent-rose: oklch(0.75 0.15 15); /* Rosa premium */
-  --accent-gold: oklch(0.80 0.12 85); /* Dourado champagne */
-  --accent-nude: oklch(0.85 0.08 45); /* Nude elegante */
+  --accent-rose: #E8B4A0; /* Rosa premium */
+  --accent-gold: #F2D7A7; /* Dourado champagne */
+  --accent-nude: #F5E6D3; /* Nude elegante */
   
-  --muted: oklch(0.95 0.01 40);
-  --muted-foreground: oklch(0.45 0.02 30);
-  --accent: oklch(0.92 0.02 35);
-  --accent-foreground: oklch(0.25 0.03 20);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.01 45);
-  --border: oklch(0.90 0.02 40);
-  --input: oklch(0.95 0.01 40);
-  --ring: oklch(0.65 0.12 25);
+  --muted: #F7F3F0;
+  --muted-foreground: #6B5B73;
+  --accent: #F0E6D6;
+  --accent-foreground: #3D2B1F;
+  --destructive: #DC2626;
+  --destructive-foreground: #FAF8F5;
+  --border: #E5D5C8;
+  --input: #F7F3F0;
+  --ring: #D4A574;
   
   /* ✅ GRADIENTES FEMININOS */
   --beauty-gradient: linear-gradient(135deg, #E8B4A0 0%, #D4A574 50%, #C19A6B 100%);
@@ -43,538 +42,463 @@
   --success-gradient: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%);
   
   /* ✅ EFEITOS GLASS FEMININOS */
-  --glass-beauty: rgba(250, 248, 245, 0.85);
-  --glass-border-beauty: rgba(212, 165, 116, 0.2);
-  --glass-shadow-beauty: 0 8px 32px rgba(212, 165, 116, 0.15);
+  --glass-beauty: rgba(250, 248, 245, 0.9);
+  --glass-border-beauty: rgba(212, 165, 116, 0.3);
+  --glass-shadow-beauty: 0 8px 32px rgba(212, 165, 116, 0.2);
   
   --radius: 0.75rem; /* Bordas mais suaves */
   
-  /* ✅ SIDEBAR ATUALIZADA */
-  --sidebar: oklch(0.97 0.01 40);
-  --sidebar-foreground: oklch(0.15 0.02 25);
-  --sidebar-primary: oklch(0.65 0.12 25);
-  --sidebar-primary-foreground: oklch(0.98 0.01 45);
-  --sidebar-accent: oklch(0.92 0.02 35);
-  --sidebar-accent-foreground: oklch(0.25 0.03 20);
-  --sidebar-border: oklch(0.90 0.02 40);
-  --sidebar-ring: oklch(0.65 0.12 25);
-}
-
-.dark {
-  /* ✅ MODO ESCURO FEMININO */
-  --background: oklch(0.08 0.01 25); /* Preto quente */
-  --foreground: oklch(0.95 0.01 45); /* Off-white cremoso */
-  --card: oklch(0.10 0.01 25);
-  --card-foreground: oklch(0.95 0.01 45);
-  --popover: oklch(0.10 0.01 25);
-  --popover-foreground: oklch(0.95 0.01 45);
-  --primary: oklch(0.75 0.15 15); /* Rosa mais vibrante no escuro */
-  --primary-foreground: oklch(0.08 0.01 25);
-  --secondary: oklch(0.15 0.02 30);
-  --secondary-foreground: oklch(0.95 0.01 45);
-  --muted: oklch(0.15 0.02 30);
-  --muted-foreground: oklch(0.65 0.02 35);
-  --accent: oklch(0.15 0.02 30);
-  --accent-foreground: oklch(0.95 0.01 45);
-  --destructive: oklch(0.60 0.20 25);
-  --destructive-foreground: oklch(0.95 0.01 45);
-  --border: oklch(0.15 0.02 30);
-  --input: oklch(0.15 0.02 30);
-  --ring: oklch(0.75 0.15 15);
-  --sidebar: oklch(0.10 0.01 25);
-  --sidebar-foreground: oklch(0.95 0.01 45);
-  --sidebar-primary: oklch(0.75 0.15 15);
-  --sidebar-primary-foreground: oklch(0.08 0.01 25);
-  --sidebar-accent: oklch(0.15 0.02 30);
-  --sidebar-accent-foreground: oklch(0.95 0.01 45);
-  --sidebar-border: oklch(0.15 0.02 30);
-  --sidebar-ring: oklch(0.75 0.15 15);
-}
-
-@theme inline {
+  /* ✅ FONTES */
   --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Inter', var(--font-inter), system-ui, sans-serif;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@layer base {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    @apply border-border outline-ring/50;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    color: var(--foreground);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    @apply bg-background text-foreground;
-    /* ✅ BACKGROUND FEMININO CORRIGIDO */
-    background: linear-gradient(135deg, #FAF8F5 0%, #F7F3F0 100%) !important;
-  }
-
-  /* ✅ OVERRIDE DO MAIN PARA BACKGROUND FEMININO */
-  main {
-    background: linear-gradient(135deg, #FAF8F5 0%, #F7F3F0 100%) !important;
-    min-height: 100vh;
+/* ✅ DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A0F0A;
+    --foreground: #F7F3F0;
+    --card: #2D1B14;
+    --card-foreground: #F7F3F0;
+    --popover: #2D1B14;
+    --popover-foreground: #F7F3F0;
+    --primary: #E8B4A0;
+    --primary-foreground: #1A0F0A;
+    --secondary: #3D2B1F;
+    --secondary-foreground: #F7F3F0;
+    --muted: #3D2B1F;
+    --muted-foreground: #A68B5B;
+    --accent: #3D2B1F;
+    --accent-foreground: #F7F3F0;
+    --destructive: #EF4444;
+    --destructive-foreground: #F7F3F0;
+    --border: #3D2B1F;
+    --input: #3D2B1F;
+    --ring: #E8B4A0;
   }
 }
 
-@layer components {
-  /* ✅ HEADLINES FEMININAS PREMIUM - MOBILE FIRST */
-  .beauty-headline-mobile {
-    font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 6vw, 2.2rem); /* ✅ OTIMIZADO MOBILE */
-    line-height: 1.2;
-    font-weight: 600;
-    text-align: center;
-    color: #2D1B14; /* ✅ COR SÓLIDA PARA MOBILE */
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-    letter-spacing: -0.02em;
-  }
+/* ✅ BASE STYLES PARA TAILWIND V4 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .beauty-headline-mobile span {
-    display: block;
-    font-size: clamp(0.9rem, 4vw, 1.1rem); /* ✅ MENOR PARA MOBILE */
-    line-height: 1.4;
-    margin-top: 0.75rem;
-    font-weight: 400;
-    font-style: italic;
-    opacity: 0.8;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  .beauty-subtitle-mobile {
-    font-family: var(--font-sans);
-    font-size: clamp(0.9rem, 3.5vw, 1rem); /* ✅ OTIMIZADO MOBILE */
-    line-height: 1.5;
-    text-align: center;
-    color: #6B5B73; /* ✅ COR SÓLIDA PARA MOBILE */
-    margin-bottom: 2rem;
-    padding: 0 1rem;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .beauty-section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 5vw, 1.8rem); /* ✅ OTIMIZADO MOBILE */
-    line-height: 1.3;
-    font-weight: 600;
-    text-align: center;
-    color: #2D1B14; /* ✅ COR SÓLIDA PARA MOBILE */
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-    letter-spacing: -0.01em;
-  }
+/* ✅ OVERRIDE DO MAIN PARA BACKGROUND FEMININO */
+main {
+  background: linear-gradient(135deg, #FAF8F5 0%, #F7F3F0 100%) !important;
+  min-height: 100vh;
+}
 
-  /* ✅ GLASS HERO FEMININO - MOBILE FIRST */
-  .glass-beauty-hero {
-    background: rgba(250, 248, 245, 0.95) !important; /* ✅ MAIS OPACO MOBILE */
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 165, 116, 0.3);
-    border-radius: 1.5rem;
-    padding: 1.5rem 1rem; /* ✅ PADDING MOBILE */
-    box-shadow: 0 8px 32px rgba(212, 165, 116, 0.2);
-    position: relative;
-    overflow: hidden;
-    margin: 0.5rem; /* ✅ MARGEM MOBILE */
-  }
+/* ✅ COMPONENTES FEMININOS PARA MOBILE */
 
-  .glass-beauty-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #F4E4E0 0%, #E8B4A0 100%);
-    opacity: 0.05;
-    pointer-events: none;
-  }
+/* Headlines Femininas Premium */
+.beauty-headline-mobile {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+  letter-spacing: -0.02em;
+  background: var(--beauty-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .glass-beauty-card {
-    background: rgba(250, 248, 245, 0.9) !important; /* ✅ MAIS OPACO MOBILE */
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 165, 116, 0.25);
-    border-radius: 1rem;
-    padding: 1rem; /* ✅ PADDING MOBILE */
-    box-shadow: 0 8px 32px rgba(212, 165, 116, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
+.beauty-headline-mobile span {
+  display: block;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  line-height: 1.4;
+  margin-top: 0.75rem;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.8;
+}
 
-  .glass-beauty-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #E8B4A0 0%, #D4A574 100%);
-    opacity: 0.03;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
+.beauty-subtitle-mobile {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  line-height: 1.5;
+  text-align: center;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
 
-  .glass-beauty-card:hover::before {
-    opacity: 0.06;
-  }
+.beauty-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  line-height: 1.3;
+  font-weight: 600;
+  text-align: center;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+  letter-spacing: -0.01em;
+}
 
-  /* ✅ ANIMAÇÕES FEMININAS SUAVES */
-  .beauty-fade-in {
-    animation: beautyFadeIn 1s ease-out;
-  }
+/* Glass Hero Feminino */
+.glass-beauty-hero {
+  background: var(--glass-beauty) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border-beauty);
+  border-radius: 1.5rem;
+  padding: 1.5rem 1rem;
+  box-shadow: var(--glass-shadow-beauty);
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem;
+}
 
-  @keyframes beautyFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px); /* ✅ MENOR PARA MOBILE */
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.glass-beauty-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--rose-gradient);
+  opacity: 0.05;
+  pointer-events: none;
+}
 
-  .beauty-float {
-    animation: beautyFloat 6s ease-in-out infinite;
-  }
+.glass-beauty-card {
+  background: var(--glass-beauty) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border-beauty) !important;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--glass-shadow-beauty);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
 
-  @keyframes beautyFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); } /* ✅ MENOR PARA MOBILE */
-  }
+.glass-beauty-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--beauty-gradient);
+  opacity: 0.03;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
 
-  /* ✅ BOTÃO CTA PREMIUM FEMININO - MOBILE FIRST */
-  .btn-beauty-primary {
-    font-family: var(--font-sans);
-    background: linear-gradient(135deg, #E8B4A0 0%, #D4A574 50%, #C19A6B 100%) !important;
-    color: #ffffff !important;
-    border: none;
-    padding: 16px 24px; /* ✅ PADDING MOBILE */
-    font-size: clamp(0.95rem, 4vw, 1.1rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
-    overflow: hidden;
-    width: 100%;
-    max-width: 350px; /* ✅ MAX-WIDTH MOBILE */
-    min-height: 56px; /* ✅ MIN-HEIGHT MOBILE */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    position: relative;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-  }
+.glass-beauty-card:hover::before {
+  opacity: 0.06;
+}
 
-  .btn-beauty-primary * {
-    color: #ffffff !important;
-  }
+/* Animações Femininas */
+.beauty-fade-in {
+  animation: beautyFadeIn 1s ease-out;
+}
 
-  .btn-beauty-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.6s ease;
+@keyframes beautyFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .btn-beauty-primary:hover::before {
-    left: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .btn-beauty-primary:active {
-    transform: translateY(1px);
-  }
+.beauty-float {
+  animation: beautyFloat 6s ease-in-out infinite;
+}
 
-  .btn-beauty-primary:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
+@keyframes beautyFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
 
-  /* ✅ TIMER ELEGANTE FEMININO - MOBILE FIRST */
-  .beauty-timer-compact {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.2) 100%);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    border-radius: 1rem;
-    padding: 12px 16px; /* ✅ PADDING MOBILE */
-    text-align: center;
-    backdrop-filter: blur(10px);
-    animation: beautyPulse 4s infinite;
+/* Botão CTA Premium Feminino */
+.btn-beauty-primary {
+  font-family: var(--font-sans);
+  background: var(--beauty-gradient) !important;
+  color: #ffffff !important;
+  border: none;
+  padding: 16px 24px;
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  min-height: 56px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.btn-beauty-primary * {
+  color: #ffffff !important;
+}
+
+.btn-beauty-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-beauty-primary:hover::before {
+  left: 100%;
+}
+
+.btn-beauty-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-beauty-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Timer Elegante Feminino */
+.beauty-timer-compact {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.2) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 1rem;
+  padding: 12px 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: beautyPulse 4s infinite;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+}
+
+@keyframes beautyPulse {
+  0%, 100% { 
     box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
   }
-
-  @keyframes beautyPulse {
-    0%, 100% { 
-      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
-      border-color: rgba(239, 68, 68, 0.4);
-    }
-    50% { 
-      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);
-      border-color: rgba(239, 68, 68, 0.6);
-    }
-  }
-
-  .beauty-timer-digit {
-    font-family: var(--font-sans);
-    font-size: clamp(1.3rem, 5vw, 1.6rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 700;
-    color: #ef4444;
-    text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
-    letter-spacing: 0.05em;
-  }
-
-  /* ✅ BADGES DE PROVA SOCIAL FEMININOS - MOBILE FIRST */
-  .beauty-social-proof {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.2) 100%) !important;
-    border: 1px solid rgba(16, 185, 129, 0.4) !important;
-    border-radius: 50px;
-    padding: 8px 14px; /* ✅ PADDING MOBILE */
-    font-size: clamp(0.75rem, 3vw, 0.85rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 500;
-    color: #059669 !important;
-    backdrop-filter: blur(8px);
-    animation: beautyFloat 5s ease-in-out infinite;
-    box-shadow: 0 3px 12px rgba(16, 185, 129, 0.15);
-    font-family: var(--font-sans);
-    letter-spacing: 0.01em;
-  }
-
-  /* ✅ CALCULADORA FEMININA PREMIUM - MOBILE FIRST */
-  .beauty-calculator {
-    background: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%);
-    border-radius: 1.5rem;
-    padding: 1.5rem 1rem; /* ✅ PADDING MOBILE */
-    color: #065f46;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .beauty-calculator::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
-    pointer-events: none;
-  }
-
-  .beauty-earning-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px; /* ✅ PADDING MOBILE */
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 0.75rem;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: clamp(0.85rem, 3vw, 0.95rem); /* ✅ TAMANHO MOBILE */
-    min-height: 44px; /* ✅ MIN-HEIGHT MOBILE */
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-  }
-
-  .beauty-earning-value {
-    font-size: clamp(1rem, 4vw, 1.2rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 700;
-    color: #064e3b;
-    font-family: var(--font-sans);
-  }
-
-  /* ✅ SEÇÃO DE PREÇO PREMIUM - MOBILE FIRST */
-  .beauty-price-section {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border-radius: 1.5rem;
-    padding: 2rem 1.5rem; /* ✅ PADDING MOBILE */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(212, 165, 116, 0.25);
-  }
-
-  .beauty-price-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #E8B4A0 0%, #D4A574 100%);
-    opacity: 0.08;
-    pointer-events: none;
-  }
-
-  .beauty-price-old {
-    font-family: var(--font-sans);
-    font-size: clamp(1.1rem, 4vw, 1.3rem); /* ✅ TAMANHO MOBILE */
-    text-decoration: line-through;
-    color: #94a3b8;
-    margin-bottom: 0.75rem;
-    font-weight: 400;
-  }
-
-  .beauty-price-new {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 12vw, 3.5rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 700;
-    background: linear-gradient(135deg, #E8B4A0 0%, #D4A574 50%, #C19A6B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1.5rem;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  /* ✅ DEPOIMENTOS FEMININOS ELEGANTES - MOBILE FIRST */
-  .beauty-testimonial {
-    background: rgba(250, 248, 245, 0.9) !important;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 165, 116, 0.25);
-    border-radius: 1rem;
-    padding: 1rem; /* ✅ PADDING MOBILE */
-    margin-bottom: 1rem;
-    position: relative;
-    box-shadow: 0 6px 25px rgba(212, 165, 116, 0.15);
-  }
-
-  .beauty-testimonial::before {
-    content: '"';
-    position: absolute;
-    top: -5px;
-    left: 15px;
-    font-size: 2.5rem; /* ✅ TAMANHO MOBILE */
-    color: #D4A574;
-    font-family: var(--font-serif);
-    line-height: 1;
-    opacity: 0.7;
-  }
-
-  .beauty-testimonial-text {
-    font-family: var(--font-sans);
-    font-size: clamp(0.85rem, 3vw, 0.95rem); /* ✅ TAMANHO MOBILE */
-    line-height: 1.6;
-    color: #2D1B14;
-    margin-bottom: 0.75rem;
-    font-style: italic;
-    padding-left: 0.75rem;
-  }
-
-  .beauty-testimonial-author {
-    font-family: var(--font-sans);
-    font-size: clamp(0.75rem, 2.5vw, 0.85rem); /* ✅ TAMANHO MOBILE */
-    font-weight: 600;
-    color: #D4A574;
-    text-align: right;
-  }
-
-  /* ✅ LOADING ELEGANTE - MOBILE FIRST */
-  .beauty-loading-dots {
-    display: inline-flex;
-    gap: 4px;
-    margin-left: 8px;
-  }
-
-  .beauty-loading-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #ffffff;
-    animation: beautyBounce 1.6s infinite ease-in-out both;
-  }
-
-  .beauty-loading-dot:nth-child(1) { animation-delay: -0.32s; }
-  .beauty-loading-dot:nth-child(2) { animation-delay: -0.16s; }
-  .beauty-loading-dot:nth-child(3) { animation-delay: 0s; }
-
-  @keyframes beautyBounce {
-    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
-    40% { transform: scale(1.1); opacity: 1; }
-  }
-
-  /* ✅ OTIMIZAÇÕES DE PERFORMANCE */
-  .beauty-gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: transform;
-  }
-
-  /* ✅ GRADIENTES ADICIONAIS PARA VARIAÇÕES */
-  .beauty-gradient-rose {
-    background: linear-gradient(135deg, #F4E4E0 0%, #E8B4A0 100%);
-  }
-
-  .beauty-gradient-gold {
-    background: linear-gradient(135deg, #F7E7CE 0%, #E8B4A0 100%);
-  }
-
-  .beauty-gradient-main {
-    background: linear-gradient(135deg, #E8B4A0 0%, #D4A574 50%, #C19A6B 100%);
+  50% { 
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);
+    border-color: rgba(239, 68, 68, 0.6);
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .font-serif {
-    font-family: var(--font-serif);
-  }
-  
-  .font-sans {
-    font-family: var(--font-sans);
-  }
+.beauty-timer-digit {
+  font-family: var(--font-sans);
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  font-weight: 700;
+  color: #ef4444;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+  letter-spacing: 0.05em;
+}
+
+/* Badges de Prova Social Femininos */
+.beauty-social-proof {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.2) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  border-radius: 50px;
+  padding: 8px 14px;
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
+  font-weight: 500;
+  color: #059669 !important;
+  backdrop-filter: blur(8px);
+  animation: beautyFloat 5s ease-in-out infinite;
+  box-shadow: 0 3px 12px rgba(16, 185, 129, 0.15);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+
+/* Calculadora Feminina Premium */
+.beauty-calculator {
+  background: var(--success-gradient);
+  border-radius: 1.5rem;
+  padding: 1.5rem 1rem;
+  color: #065f46;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.beauty-calculator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+}
+
+.beauty-earning-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  min-height: 44px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.beauty-earning-value {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: 700;
+  color: #064e3b;
+  font-family: var(--font-sans);
+}
+
+/* Seção de Preço Premium */
+.beauty-price-section {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 165, 116, 0.25);
+}
+
+.beauty-price-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--beauty-gradient);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.beauty-price-old {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  text-decoration: line-through;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.beauty-price-new {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  font-weight: 700;
+  background: var(--beauty-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Depoimentos Femininos Elegantes */
+.beauty-testimonial {
+  background: var(--glass-beauty) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border-beauty);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  box-shadow: 0 6px 25px rgba(212, 165, 116, 0.15);
+}
+
+.beauty-testimonial::before {
+  content: '"';
+  position: absolute;
+  top: -5px;
+  left: 15px;
+  font-size: 2.5rem;
+  color: var(--accent-rose);
+  font-family: var(--font-serif);
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.beauty-testimonial-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  line-height: 1.6;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  font-style: italic;
+  padding-left: 0.75rem;
+}
+
+.beauty-testimonial-author {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+  font-weight: 600;
+  color: var(--accent-rose);
+  text-align: right;
+}
+
+/* Loading Elegante */
+.beauty-loading-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.beauty-loading-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: beautyBounce 1.6s infinite ease-in-out both;
+}
+
+.beauty-loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.beauty-loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.beauty-loading-dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes beautyBounce {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Otimizações de Performance */
+.beauty-gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* ✅ RESPONSIVIDADE ESPECÍFICA PARA MOBILE */
@@ -612,12 +536,12 @@
   }
 }
 
-/* ✅ VTURB SMARTPLAYER - MANTIDO ORIGINAL */
+/* ✅ VTURB SMARTPLAYER */
 vturb-smartplayer {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
-  min-height: 220px !important; /* ✅ MENOR PARA MOBILE */
+  min-height: 220px !important;
   border-radius: 1rem !important;
   overflow: hidden !important;
   position: relative !important;
@@ -653,47 +577,6 @@ vturb-smartplayer video {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
-}
-
-#vid-68cc431968f1a0ddac9f82d8 {
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.video-container {
-  position: relative !important;
-  z-index: 1 !important;
-  overflow: visible !important;
-}
-
-.video-fallback {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  border-radius: 1rem;
-  z-index: 5 !important;
-  transition: opacity 0.5s ease;
-}
-
-.video-fallback.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ✅ MELHORIAS DE ACESSIBILIDADE */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 /* ✅ HOVER STATES APENAS PARA DESKTOP */
@@ -762,5 +645,14 @@ vturb-smartplayer video {
   
   .beauty-price-new {
     font-size: 2.2rem;
+  }
+}
+
+/* ✅ MELHORIAS DE ACESSIBILIDADE */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
