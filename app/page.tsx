@@ -881,7 +881,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-xs mb-1">
-                      "Zero experiência. Com o método da Amanda, R\$ 55 por cliente desde o 1º atendimento! Não acreditava que seria possível."
+                      "Zero experiência. Com o método da Amanda, R$ 55 por cliente desde o 1º atendimento! Não acreditava que seria possível."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -909,7 +909,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-xs mb-1">
-                      "Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R\$2.500! Mudou minha vida."
+                      "Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R$2.500! Mudou minha vida."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -937,7 +937,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-xs mb-1">
-                      "Saí do desemprego para R\$ 3.200/mês em 3 meses. Hoje tenho meu próprio studio. Gratidão eterna à Amanda!"
+                      "Saí do desemprego para R$ 3.200/mês em 3 meses. Hoje tenho meu próprio studio. Gratidão eterna à Amanda!"
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -1008,7 +1008,7 @@ export default function Home() {
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-title-mobile">
-            Recapitulando: Tudo o que você leva hoje por apenas <span className="text-amber-400">R\$ 37</span>
+            Recapitulando: Tudo o que você leva hoje por apenas <span className="text-amber-400">R$ 37</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6">
@@ -1051,8 +1051,8 @@ export default function Home() {
             <Card className="glass-card-mobile p-4">
               <CardContent className="p-0 text-center">
                 <div className="mb-3">
-                  <div className="text-slate-400 line-through text-base">De: R\$ 297,00</div>
-                  <div className="text-3xl font-bold text-amber-400">R\$ 37</div>
+                  <div className="text-slate-400 line-through text-base">De: R$ 297,00</div>
+                  <div className="text-3xl font-bold text-amber-400">R$ 37</div>
                   <div className="text-slate-300 text-sm">Pagamento único</div>
                 </div>
                 
@@ -1187,7 +1187,7 @@ export default function Home() {
               🚨 ÚLTIMAS {vagasRestantes} VAGAS DISPONÍVEIS
             </p>
             <p className="text-red-300 text-xs text-center mt-1">
-              Após esgotar, próxima turma apenas em Novembro por R\$ 497
+              Após esgotar, próxima turma apenas em Novembro por R$ 497
             </p>
             <p className="text-red-300 text-xs text-center mt-1">
               +{novasVagas24h} mulheres garantiram vaga nas últimas 24h
@@ -1198,7 +1198,7 @@ export default function Home() {
             🚀 TRANSFORME SUA VIDA AGORA!
           </h2>
           <p className="text-base text-slate-300 mb-4">
-            Por apenas <span className="text-amber-400 font-bold text-xl">R\$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira trabalhando com sobrancelhas.
+            Por apenas <span className="text-amber-400 font-bold text-xl">R$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira trabalhando com sobrancelhas.
           </p>
           
           <Button 
