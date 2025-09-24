@@ -796,7 +796,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4283.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/744AC0AD-B13A-43F3-8ABB-B170FC0955FF-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 1"
                 width={200}
                 height={200}
@@ -807,7 +807,7 @@ export default function Home() {
             
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4284.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/1BE356B6-B9B0-4CA6-B01B-CE7B04708035-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 2"
                 width={200}
                 height={200}
@@ -818,7 +818,7 @@ export default function Home() {
             
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/fernanda-3.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/5AF3165D-93B2-40EF-9E8B-C6DD855D2967-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 3"
                 width={200}
                 height={200}
@@ -829,7 +829,7 @@ export default function Home() {
             
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/expert-img.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/5827B0FF-270B-4DE6-B93E-E5739BC7C828-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 4"
                 width={200}
                 height={200}
@@ -840,7 +840,7 @@ export default function Home() {
             
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4283.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/B4FBE6B4-78FB-41D6-BA43-7E37720C2E6C-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 5"
                 width={200}
                 height={200}
@@ -851,7 +851,7 @@ export default function Home() {
             
             <Card className="glass-card-mobile p-1 hover:scale-105 transition-transform duration-300">
               <Image
-                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4284.webp"
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/2DB3B625-5AA4-49A0-82AB-C76F5575FDD4-scaled.webp"
                 alt="Resultado antes e depois de sobrancelha 6"
                 width={200}
                 height={200}
@@ -927,7 +927,7 @@ export default function Home() {
               <CardContent className="p-0">
                 <div className="flex items-start gap-3">
                   <Image
-                    src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/fernanda-3.webp"
+                    src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/bcfdb98d0af7f3d9c62c0ce159374d41.webp"
                     alt="Foto de Fernanda Oliveira, aluna do curso"
                     width={40}
                     height={40}
@@ -953,7 +953,7 @@ export default function Home() {
               <CardContent className="p-0">
                 <div className="flex items-start gap-3">
                   <Image
-                    src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/expert-img.webp"
+                    src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/41a107079cc917227948951a6bcc2e20.webp"
                     alt="Foto de Carolina Santos, aluna do curso"
                     width={40}
                     height={40}
