@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ArrowRight, Clock, Users, DollarSign, Star, CheckCircle, Shield, Play, Zap, TrendingUp, Award, Heart, Eye } from "lucide-react"
+import { ArrowRight, Clock, Users, DollarSign, Star, CheckCircle, Shield, Play, Zap, TrendingUp, Award, Heart, Eye, AlertTriangle, X } from "lucide-react"
 import Script from "next/script"
 import Image from "next/image"
 
@@ -61,6 +61,8 @@ export default function Home() {
   const [clientesVisualizando, setClientesVisualizando] = useState(127);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [vturbReady, setVturbReady] = useState(false);
+  const [novasVagas24h, setNovasVagas24h] = useState(47);
+  const [showUrgencyBanner, setShowUrgencyBanner] = useState(true);
   
   // Refs para lazy loading
   const [heroRef, heroInView] = useIntersectionObserver({ threshold: 0.1 });
@@ -129,7 +131,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [heroInView]);
 
-  // Simulação de atividade em tempo real (mantido)
+  // Simulação de atividade em tempo real (mantido + melhorado)
   useEffect(() => {
     const interval = setInterval(() => {
       setVagasRestantes(prev => {
@@ -141,44 +143,17 @@ export default function Home() {
         const variation = Math.floor(Math.random() * 10) - 5;
         return Math.max(120, Math.min(150, prev + variation));
       });
+
+      setNovasVagas24h(prev => {
+        const variation = Math.floor(Math.random() * 6) - 3;
+        return Math.max(40, Math.min(55, prev + variation));
+      });
     }, 45000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // 🔥 FUNÇÃO DEBUG PARA FACEBOOK PIXEL (temporária)
-  const debugFacebookPixel = useCallback(() => {
-    console.log('�� Debug Facebook Pixel:');
-    console.log('- window.fbq:', !!window.fbq);
-    console.log('- window.utmify:', !!window.utmify);
-    console.log('- window.pixel:', !!window.pixel);
-    console.log('- pixelId configurado:', window.pixelId);
-    
-    // Lista todos os objetos relacionados ao pixel
-    const pixelObjects = Object.keys(window).filter(key => 
-      key.toLowerCase().includes('pixel') || 
-      key.toLowerCase().includes('fb') ||
-      key.toLowerCase().includes('utm')
-    );
-    console.log('- Objetos relacionados ao pixel:', pixelObjects);
-    
-    // Testa disparo manual
-    if (window.fbq) {
-      window.fbq('track', 'InitiateCheckout', {
-        content_name: 'TESTE DEBUG',
-        value: 37.00,
-        currency: 'BRL'
-      });
-      console.log('✅ Teste InitiateCheckout enviado via fbq');
-    }
-  }, []);
-
-  // Debug automático (remover depois)
-  useEffect(() => {
-    setTimeout(debugFacebookPixel, 3000);
-  }, [debugFacebookPixel]);
-
-  // 🔥 CTA CORRIGIDO PARA FACEBOOK INITIATE CHECKOUT
+  // ✅ CTA CORRIGIDO PARA FACEBOOK INITIATE CHECKOUT (mantido)
   const handleCTA = useCallback((e, origem) => {
     if (isLoading) return;
     
@@ -186,7 +161,7 @@ export default function Home() {
     
     console.log(`🎯 CTA clicado - Origem: ${origem}`);
     
-    // 🔥 FACEBOOK PIXEL - INITIATE CHECKOUT (PRINCIPAL)
+    // ✅ FACEBOOK PIXEL - INITIATE CHECKOUT (PRINCIPAL)
     if (typeof window !== 'undefined') {
       
       // Método 1: Via fbq direta (se disponível)
@@ -199,12 +174,11 @@ export default function Home() {
             value: 37.00,
             currency: 'BRL',
             num_items: 1,
-            // Dados extras para análise
             origem: origem,
             button_text: e.target.innerText || 'CTA Button',
             timestamp: Date.now()
           });
-          console.log('✅ InitiateCheckout disparado via fbq');
+          console.log('✅ InitiateCheckout disparado via fbq - Origem:', origem);
         } catch (error) {
           console.warn('⚠️ Erro fbq:', error);
         }
@@ -221,17 +195,16 @@ export default function Home() {
               currency: 'BRL',
               origem: origem
             });
-            console.log('✅ InitiateCheckout disparado via utmify.track');
+            console.log('✅ InitiateCheckout disparado via utmify.track - Origem:', origem);
           }
           
-          // Tenta método alternativo do UTMify
           if (window.utmify.pixel && window.utmify.pixel.track) {
             window.utmify.pixel.track('InitiateCheckout', {
               content_name: 'Formação Design de Sobrancelhas',
               value: 37.00,
               currency: 'BRL'
             });
-            console.log('✅ InitiateCheckout disparado via utmify.pixel.track');
+            console.log('✅ InitiateCheckout disparado via utmify.pixel.track - Origem:', origem);
           }
         } catch (error) {
           console.warn('⚠️ Erro UTMify:', error);
@@ -247,7 +220,7 @@ export default function Home() {
             currency: 'BRL',
             origem: origem
           });
-          console.log('✅ InitiateCheckout disparado via pixel.track');
+          console.log('✅ InitiateCheckout disparado via pixel.track - Origem:', origem);
         } catch (error) {
           console.warn('⚠️ Erro pixel global:', error);
         }
@@ -271,7 +244,7 @@ export default function Home() {
             origem: origem,
             timestamp: Date.now()
           });
-          console.log('✅ InitiateCheckout disparado via dataLayer');
+          console.log('✅ InitiateCheckout disparado via dataLayer - Origem:', origem);
         } catch (error) {
           console.warn('⚠️ Erro dataLayer:', error);
         }
@@ -289,7 +262,7 @@ export default function Home() {
           }
         `;
         eval(pixelCode);
-        console.log('✅ InitiateCheckout disparado via eval');
+        console.log('✅ InitiateCheckout disparado via eval - Origem:', origem);
       } catch (error) {
         console.warn('⚠️ Erro eval:', error);
       }
@@ -307,7 +280,7 @@ export default function Home() {
     setTimeout(() => {
       console.log('🚀 Redirecionando para checkout...');
       window.location.href = 'https://pay.cakto.com.br/qpmz3oi_299505';
-    }, 800); // 800ms para garantir que todos os eventos sejam enviados
+    }, 800);
     
     // Reset para UX
     setTimeout(() => {
@@ -341,7 +314,6 @@ export default function Home() {
         strategy="lazyOnload"
       />
 
-      {/* ✅ VTURB SCRIPT CORRIGIDO COM CÓDIGO CORRETO */}
       <Script
         src="https://scripts.converteai.net/529d9a9b-9a02-4648-9d1f-be6bbe950e40/players/68cc431968f1a0ddac9f82d8/v4/player.js"
         strategy="afterInteractive"
@@ -361,7 +333,6 @@ export default function Home() {
         }}
       />
 
-      {/* VTURB PRELOAD OTIMIZADO */}
       <Script 
         id="vturb-preload"
         strategy="beforeInteractive"
@@ -370,14 +341,31 @@ export default function Home() {
         }} 
       />
 
+      {/* ✅ NOVO: BANNER DE URGÊNCIA NO TOPO */}
+      {showUrgencyBanner && (
+        <div className="bg-red-600 text-white text-center py-3 px-4 relative z-50">
+          <div className="flex items-center justify-center gap-2 text-sm font-bold">
+            <AlertTriangle className="w-4 h-4" />
+            <span>🚨 SEJA RÁPIDA! Esta promoção pode EXPIRAR a qualquer momento!</span>
+            <button 
+              onClick={() => setShowUrgencyBanner(false)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-red-200"
+              aria-label="Fechar banner"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* HERO SECTION OTIMIZADA */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-2 py-8">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
         
         <div className="glass-hero max-w-5xl mx-auto p-6 relative z-10 fade-in-mobile">
           
-          {/* PROVA SOCIAL IMEDIATA */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {/* ✅ PROVA SOCIAL MELHORADA */}
+          <div className="flex flex-wrap justify-center gap-3 mb-4">
             <Badge className="social-proof-badge">
               <Eye className="w-4 h-4 inline mr-1" />
               <span aria-label={`${clientesVisualizando} pessoas visualizando agora`}>
@@ -392,14 +380,28 @@ export default function Home() {
             </Badge>
           </div>
 
-          {/* HEADLINE PRINCIPAL */}
+          {/* ✅ NOVA ESCASSEZ MAIS AGRESSIVA */}
+          <div className="bg-red-500/20 border border-red-400 rounded-lg p-3 mb-6">
+            <p className="text-red-300 text-sm font-bold text-center">
+              ⚠️ ÚLTIMAS {vagasRestantes} VAGAS - Após esgotar, próxima turma apenas em MARÇO por R$ 497
+            </p>
+            <p className="text-red-300 text-xs text-center mt-1">
+              +{novasVagas24h} mulheres garantiram vaga nas últimas 24h
+            </p>
+          </div>
+
+          {/* ✅ HEADLINE MAIS IMPACTANTE */}
           <h1 className="headline-mobile">
-            GANHE R$ 2.500+ POR MÊS<br />
-            COM DESIGN DE SOBRANCELHAS
+            GANHE R$ 2.500+ POR MÊS FAZENDO SOBRANCELHAS<br />
+            <span className="text-amber-400">MESMO SENDO COMPLETA INICIANTE!</span>
+            <span className="block text-lg mt-2 text-slate-300">
+              O método ÚNICO que permite você cobrar R$ 55 por atendimento em 30 dias - GARANTIDO!
+            </span>
           </h1>
           
+          {/* ✅ SUBHEADLINE OTIMIZADA */}
           <p className="subtitle-mobile">
-            <strong>Método exclusivo</strong> que transformou 1.500+ mulheres em especialistas requisitadas. <strong>Mesmo começando do zero!</strong>
+            Já funcionou para <strong>1.500+ mulheres</strong> que começaram do absoluto zero e hoje faturam <strong>R$ 2.500+ por mês</strong> trabalhando apenas 3 horas por dia.
           </p>
 
           {/* ✅ VÍDEO VTURB COMPLETAMENTE CORRIGIDO */}
@@ -437,13 +439,13 @@ export default function Home() {
             </Card>
           </div>
 
-          {/* CTA PRINCIPAL CORRIGIDO */}
+          {/* ✅ CTA PRINCIPAL OTIMIZADO */}
           <div className="text-center mb-4">
             <Button 
               onClick={(e) => handleCTA(e, 'hero')}
               disabled={isLoading}
               className="btn-primary-mobile gpu-accelerated"
-              aria-label="Clique para garantir sua vaga no curso e começar a faturar R$ 2.500 por mês"
+              aria-label="Garantir minha vaga por R$ 37 antes que o preço volte para R$ 297"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
@@ -456,7 +458,7 @@ export default function Home() {
                 </span>
               ) : (
                 <span className="flex items-center justify-center">
-                  QUERO FATURAR R$ 2.500+/MÊS
+                  QUERO COMEÇAR AGORA SEM RISCO POR R$ 37
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </span>
               )}
@@ -464,10 +466,10 @@ export default function Home() {
           </div>
 
           <p className="text-center text-sm text-slate-300 mb-4">
-            ⚡ Acesso imediato • 💎 Recupere o investimento no 1º cliente
+            ⚡ Acesso imediato • 💎 Se paga no primeiro cliente • 🛡️ Garantia 7 dias
           </p>
 
-          {/* TIMER COMPACTO MELHORADO */}
+          {/* ✅ TIMER COMPACTO MELHORADO COM ESCASSEZ */}
           <div className="timer-compact max-w-xs mx-auto">
             <div className="flex items-center justify-center mb-1">
               <Clock className="w-4 h-4 text-red-400 mr-2" />
@@ -489,18 +491,80 @@ export default function Home() {
                 <div className="text-xs text-red-300">S</div>
               </div>
             </div>
+            
+            <div className="bg-red-500/20 border border-red-400 rounded-lg p-2 mt-3">
+              <p className="text-red-300 text-xs text-center font-bold">
+                ⚠️ Após o timer, preço volta para R$ 297
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO POTENCIAL DE GANHOS COMPACTA */}
+      {/* ✅ NOVA SEÇÃO: PARA VOCÊ SE QUER... */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-3">
+            Este curso é perfeito <span className="text-amber-400">para você se quer...</span>
+          </h2>
+          
+          <div className="grid gap-4 mt-8">
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-center">
+                  <CheckCircle className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
+                  <span className="text-white font-medium">Trocar a CLT por uma profissão valorizada e lucrativa</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-center">
+                  <CheckCircle className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
+                  <span className="text-white font-medium">Começar do zero e aprender passo a passo sem enrolação</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-center">
+                  <CheckCircle className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
+                  <span className="text-white font-medium">Conquistar uma renda extra de R$ 2.500+ por mês</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-center">
+                  <CheckCircle className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
+                  <span className="text-white font-medium">Se destacar no mercado com uma técnica moderna e exclusiva</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-center">
+                  <CheckCircle className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
+                  <span className="text-white font-medium">Trabalhar com algo prazeroso, ajudando mulheres a se sentirem mais bonitas</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ SEÇÃO POTENCIAL DE GANHOS MELHORADA */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-white mb-3">
             💰 SEU POTENCIAL DE GANHOS
           </h2>
           <p className="text-lg text-center text-slate-300 mb-8">
-            Baseado em R$ 55 por atendimento
+            Baseado em R$ 55 por atendimento (preço mínimo do mercado)
           </p>
 
           <div className="calculator-mobile max-w-lg mx-auto">
@@ -511,9 +575,9 @@ export default function Home() {
               <span className="earning-value">R$ 1.210</span>
             </div>
             
-            <div className="earning-row">
-              <span>2 clientes/dia</span>
-              <span className="earning-value">R$ 2.420</span>
+            <div className="earning-row bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400">
+              <span>2 clientes/dia (META REAL)</span>
+              <span className="earning-value text-2xl">R$ 2.420</span>
             </div>
             
             <div className="earning-row">
@@ -525,57 +589,134 @@ export default function Home() {
               <p className="font-bold text-sm">
                 🎯 Com apenas 2 clientes/dia = R$ 2.500+/mês!
               </p>
+              <p className="text-xs mt-1 text-slate-300">
+                Nossas alunas cobram até R$ 80 por atendimento
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO PREÇO ANTECIPADA */}
+      {/* ✅ NOVA SEÇÃO - QUEBRA DE OBJEÇÕES MELHORADA */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
+            ❓ AINDA TEM DÚVIDAS?
+          </h2>
+          
+          <div className="space-y-4">
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <h3 className="text-amber-400 font-bold mb-2">
+                  "Nunca fiz sobrancelhas antes..."
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  ✅ Perfeito! O método foi criado para iniciantes. Você aprende do zero ao profissional em passos simples e práticos.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <h3 className="text-amber-400 font-bold mb-2">
+                  "E se não conseguir clientes?"
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  ✅ Impossível! O BÔNUS "Como Atrair 10 Clientes em 30 Dias" ensina estratégias testadas e aprovadas por 1.500+ alunas.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <h3 className="text-amber-400 font-bold mb-2">
+                  "R$ 55 por atendimento é muito?"
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  ✅ É o preço MÍNIMO do mercado! Nossas alunas cobram até R$ 80. Você vai se surpreender com a valorização.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <h3 className="text-amber-400 font-bold mb-2">
+                  "Não tenho tempo para estudar..."
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  ✅ São apenas 14h de conteúdo direto ao ponto. Você pode assistir no seu ritmo, quando quiser. Acesso vitalício!
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ SEÇÃO PREÇO COM STACK DE VALOR MASSIVO */}
       <section ref={priceRef} className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="price-section-mobile relative z-10">
             <div className="relative z-20">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4 text-center">
                 🔥 OFERTA EXCLUSIVA!
               </h2>
               
-              <div className="mb-6">
-                <div className="price-old-mobile">De R$ 297,00</div>
-                <div className="price-new-mobile">R$ 37</div>
-                <p className="text-slate-300">Pagamento único • Sem mensalidades</p>
-              </div>
-
-              <Card className="glass-card-mobile p-4 mb-6">
+              {/* ✅ STACK DE VALOR MASSIVO */}
+              <Card className="glass-card-mobile p-4 border-2 border-amber-400 mb-6">
                 <CardContent className="p-0">
-                  <h3 className="text-lg font-bold text-amber-400 mb-3">✅ VOCÊ RECEBE:</h3>
-                  <div className="grid grid-cols-1 gap-2 text-left text-sm">
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>Curso completo (14h de conteúdo)</span>
+                  <h3 className="text-amber-400 font-bold mb-3 text-center text-lg">
+                    🎁 VOCÊ RECEBE HOJE (Valor Total: R$ 594)
+                  </h3>
+                  
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Curso Completo (14h de conteúdo)</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 297</s></span>
                     </div>
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>Certificado de conclusão</span>
+                    
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Certificado Profissional</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 97</s></span>
                     </div>
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>Acesso vitalício + atualizações</span>
+                    
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Como Atrair 10 Clientes em 30 Dias</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 197</s></span>
                     </div>
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>Suporte especializado</span>
+                    
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Suporte Especializado</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 97</s></span>
                     </div>
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>Comunidade exclusiva</span>
+                    
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Comunidade Exclusiva</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 97</s></span>
                     </div>
-                    <div className="flex items-center text-white">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
-                      <span>BÔNUS: Guia atração de clientes</span>
+                    
+                    <div className="flex justify-between items-center border-b border-slate-600 pb-2">
+                      <span className="text-white text-sm">✅ Acesso Vitalício + Atualizações</span>
+                      <span className="text-slate-300 text-sm"><s>R$ 97</s></span>
+                    </div>
+                    
+                    <div className="bg-green-500/20 p-3 rounded-lg mt-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-green-300 font-bold">TOTAL HOJE:</span>
+                        <span className="text-green-300 font-bold text-2xl">R$ 37</span>
+                      </div>
+                      <p className="text-green-300 text-xs text-center mt-1">
+                        Economia de R$ 557 (94% OFF)
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
+
+              <div className="text-center mb-6">
+                <div className="price-old-mobile">De R$ 297,00</div>
+                <div className="price-new-mobile">R$ 37</div>
+                <p className="text-slate-300">Pagamento único • Sem mensalidades</p>
+              </div>
 
               <div className="text-center mb-4">
                 <Button 
@@ -604,7 +745,7 @@ export default function Home() {
 
               <p className="text-center text-slate-300 text-sm">
                 💎 Se paga no primeiro cliente!<br />
-                🛡️ Garantia de 7 dias
+                🛡️ Garantia de 7 dias • ⚡ Acesso imediato
               </p>
             </div>
           </div>
@@ -652,15 +793,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS COMPACTOS */}
+      {/* ✅ NOVA SEÇÃO: ANTES E DEPOIS VISUAL */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-4">
+            ⭐ VEJA OS RESULTADOS <span className="text-amber-400">REAIS DA TÉCNICA</span>
+          </h2>
+          <p className="text-center text-slate-300 mb-8">
+            Você também será capaz de entregar resultados assim - mesmo começando do zero
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4283.webp"
+                alt="Resultado antes e depois de sobrancelha 1"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+            
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4284.webp"
+                alt="Resultado antes e depois de sobrancelha 2"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+            
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/fernanda-3.webp"
+                alt="Resultado antes e depois de sobrancelha 3"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+            
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/expert-img.webp"
+                alt="Resultado antes e depois de sobrancelha 4"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+            
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4283.webp"
+                alt="Resultado antes e depois de sobrancelha 5"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+            
+            <Card className="glass-card-mobile p-2 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/IMG_4284.webp"
+                alt="Resultado antes e depois de sobrancelha 6"
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+              />
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ DEPOIMENTOS COMPACTOS MELHORADOS */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-white mb-8">
-            ⭐ RESULTADOS REAIS
+            ⭐ O QUE AS ALUNAS ESTÃO FALANDO
           </h2>
           
           <div className="space-y-4">
-            <Card className="testimonial-compact">
+            <Card className="testimonial-compact hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-start gap-3">
                   <Image
@@ -673,7 +894,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-sm mb-2">
-                      Antes cobrava R$20. Hoje cobro R$55 e agenda lotada! Se pagou na primeira semana.
+                      "Primeira semana: R$ 385. Segundo mês: R$ 2.100. Hoje tenho lista de espera! O método da Amanda é incrível."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -686,7 +907,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="testimonial-compact">
+            <Card className="testimonial-compact hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-start gap-3">
                   <Image
@@ -699,7 +920,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-sm mb-2">
-                      Zero experiência na área. Com o método da Amanda, resultados profissionais desde o 1º atendimento!
+                      "Zero experiência. Com o método da Amanda, R$ 55 por cliente desde o 1º atendimento! Não acreditava que seria possível."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -712,7 +933,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="testimonial-compact">
+            <Card className="testimonial-compact hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-start gap-3">
                   <Image
@@ -725,7 +946,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-sm mb-2">
-                      Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R$2.500!
+                      "Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R\$2.500! Mudou minha vida."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -733,6 +954,32 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="font-bold text-amber-400 text-xs">Fernanda Oliveira, MG</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="testimonial-compact hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-0">
+                <div className="flex items-start gap-3">
+                  <Image
+                    src="https://amandateixeiraoficial.com.br/wp-content/uploads/2025/09/expert-img.webp"
+                    alt="Foto de Carolina Santos, aluna do curso"
+                    width={50}
+                    height={50}
+                    className="rounded-full border-2 border-amber-400 flex-shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="text-slate-200 text-sm mb-2">
+                      "Saí do desemprego para R\$ 3.200/mês em 3 meses. Hoje tenho meu próprio studio. Gratidão eterna à Amanda!"
+                    </p>
+                    <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                    <p className="font-bold text-amber-400 text-xs">Carolina Santos, PR</p>
                   </div>
                 </div>
               </CardContent>
@@ -745,47 +992,141 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-white mb-8">
-            📚 O QUE VOCÊ APRENDE
+            📚 O QUE VOCÊ VAI APRENDER
           </h2>
           
           <div className="grid gap-4">
-            <Card className="glass-card-mobile p-4">
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-center mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">1</div>
-                  <h3 className="text-lg font-bold text-white">Fundamentos</h3>
+                  <h3 className="text-lg font-bold text-white">Fundamentos Profissionais</h3>
                 </div>
-                <p className="text-slate-300 text-sm">Anatomia, materiais e protocolos profissionais</p>
+                <p className="text-slate-300 text-sm">Anatomia facial, materiais profissionais e protocolos de segurança</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card-mobile p-4">
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-center mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">2</div>
-                  <h3 className="text-lg font-bold text-white">Simetria Facial</h3>
+                  <h3 className="text-lg font-bold text-white">Simetria Facial Perfeita</h3>
                 </div>
-                <p className="text-slate-300 text-sm">Modelagem personalizada para cada formato de rosto</p>
+                <p className="text-slate-300 text-sm">Modelagem personalizada para cada formato de rosto e biotipo</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card-mobile p-4">
+            <Card className="glass-card-mobile p-4 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-center mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">3</div>
                   <h3 className="text-lg font-bold text-white">Técnicas Avançadas</h3>
                 </div>
-                <p className="text-slate-300 text-sm">Spa de sobrancelhas, técnica de pinçamento e esferas cromoterapia</p>
+                <p className="text-slate-300 text-sm">Spa de sobrancelhas, técnica de pinçamento e cromoterapia exclusiva</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card-mobile p-4 border-2 border-amber-400">
+            <Card className="glass-card-mobile p-4 border-2 border-amber-400 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-0">
                 <div className="flex items-center mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">🎁</div>
-                  <h3 className="text-lg font-bold text-amber-400">BÔNUS</h3>
+                  <h3 className="text-lg font-bold text-amber-400">BÔNUS EXCLUSIVO</h3>
                 </div>
-                <p className="text-slate-300 text-sm">Como atrair 10 clientes em 30 dias + estratégias de vendas</p>
+                <p className="text-slate-300 text-sm">Como atrair 10 clientes em 30 dias + estratégias de vendas e fidelização</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ NOVA SEÇÃO: RECAPITULAÇÃO FINAL */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
+            Recapitulando: Tudo o que você leva hoje por apenas <span className="text-amber-400">R\$ 37</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Lista do que recebe */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">✅ VOCÊ RECEBE:</h3>
+              <div className="space-y-3">
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Curso completo com 14h de conteúdo</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Certificado de conclusão profissional</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Acesso vitalício + atualizações</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Suporte especializado</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Comunidade exclusiva de alunas</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>BÔNUS: Como atrair 10 clientes em 30 dias</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                  <span>Garantia incondicional de 7 dias</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* CTA Box */}
+            <Card className="glass-card-mobile p-6">
+              <CardContent className="p-0 text-center">
+                <div className="mb-4">
+                  <div className="text-slate-400 line-through text-lg">De: R\$ 297,00</div>
+                  <div className="text-4xl font-bold text-amber-400">R\$ 37</div>
+                  <div className="text-slate-300">Pagamento único</div>
+                </div>
+                
+                <Button 
+                  onClick={(e) => handleCTA(e, 'recap')}
+                  disabled={isLoading}
+                  className="btn-primary-mobile w-full mb-4"
+                >
+                  {isLoading ? (
+                    <span className="flex items-center justify-center">
+                      PROCESSANDO
+                      <div className="loading-dots">
+                        <div className="loading-dot"></div>
+                        <div className="loading-dot"></div>
+                        <div className="loading-dot"></div>
+                      </div>
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center">
+                      QUERO COMEÇAR AGORA SEM RISCO
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </span>
+                  )}
+                </Button>
+                
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center text-green-400">
+                    <CheckCircle className="w-4 h-4 mr-2" />
+                    <span>Acesso Imediato</span>
+                  </div>
+                  <div className="flex items-center justify-center text-green-400">
+                    <Shield className="w-4 h-4 mr-2" />
+                    <span>Garantia de 7 dias</span>
+                  </div>
+                  <div className="flex items-center justify-center text-green-400">
+                    <Zap className="w-4 h-4 mr-2" />
+                    <span>Se paga no 1º cliente</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -795,37 +1136,110 @@ export default function Home() {
       {/* GARANTIA COMPACTA */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <Card className="glass-card-mobile p-6 text-center">
+          <Card className="glass-card-mobile p-6 text-center hover:scale-105 transition-transform duration-300">
             <CardContent className="p-0">
               <Shield className="w-12 h-12 text-green-400 mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-white mb-3">
-                🛡️ GARANTIA DE 7 DIAS
+                🛡️ GARANTIA INCONDICIONAL DE 7 DIAS
               </h2>
               <p className="text-slate-300 mb-4">
-                100% do seu dinheiro de volta se não ficar satisfeita. Sem perguntas, sem burocracia.
+                100% do seu dinheiro de volta se não ficar satisfeita. Sem perguntas, sem burocracia, sem complicação.
               </p>
-              <p className="text-amber-400 font-bold">
+              <p className="text-amber-400 font-bold text-lg">
                 O RISCO É TODO NOSSO!
+              </p>
+              <p className="text-slate-300 text-sm mt-2">
+                Você pode testar todo o conteúdo por 7 dias completos
               </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* CTA FINAL OTIMIZADO */}
+      {/* ✅ FAQ MELHORADO */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
+            ❓ PERGUNTAS FREQUENTES
+          </h2>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="glass-card-mobile border-none">
+              <AccordionTrigger className="text-white hover:text-amber-400 px-4">
+                Preciso ter experiência prévia?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-300 px-4 pb-4">
+                Não! O curso foi criado especificamente para iniciantes. Você aprende do absoluto zero até se tornar uma profissional confiante, com método passo a passo.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="glass-card-mobile border-none">
+              <AccordionTrigger className="text-white hover:text-amber-400 px-4">
+                Quanto tempo leva para começar a atender?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-300 px-4 pb-4">
+                Em média, nossas alunas começam a atender em 2-3 semanas. O curso tem 14h de conteúdo que você pode assistir no seu ritmo.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="glass-card-mobile border-none">
+              <AccordionTrigger className="text-white hover:text-amber-400 px-4">
+                Como funciona a garantia?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-300 px-4 pb-4">
+                Você tem 7 dias para testar todo o conteúdo. Se não ficar satisfeita, devolvemos 100% do valor sem perguntas ou burocracia.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="glass-card-mobile border-none">
+              <AccordionTrigger className="text-white hover:text-amber-400 px-4">
+                Preciso comprar materiais caros?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-300 px-4 pb-4">
+                Não! Ensinamos como começar com um investimento mínimo e onde comprar materiais de qualidade com preços acessíveis.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="glass-card-mobile border-none">
+              <AccordionTrigger className="text-white hover:text-amber-400 px-4">
+                O acesso é vitalício mesmo?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-300 px-4 pb-4">
+                Sim! Você terá acesso para sempre, incluindo todas as atualizações futuras do curso, sem custo adicional.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      {/* ✅ CTA FINAL OTIMIZADO COM URGÊNCIA MÁXIMA */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          
+          {/* ✅ URGÊNCIA FINAL MAIS FORTE */}
+          <div className="bg-red-500/20 border border-red-400 rounded-lg p-4 mb-6">
+            <p className="text-red-300 text-lg font-bold text-center">
+              🚨 ÚLTIMAS {vagasRestantes} VAGAS DISPONÍVEIS
+            </p>
+            <p className="text-red-300 text-sm text-center mt-1">
+              Após esgotar, próxima turma apenas em MARÇO por R\$ 497
+            </p>
+            <p className="text-red-300 text-xs text-center mt-2">
+              +{novasVagas24h} mulheres garantiram vaga nas últimas 24h
+            </p>
+          </div>
+
+          <h2 className="text-4xl font-bold text-white mb-4">
             🚀 TRANSFORME SUA VIDA AGORA!
           </h2>
           <p className="text-lg text-slate-300 mb-6">
-            Por apenas <span className="text-amber-400 font-bold text-xl">R$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira.
+            Por apenas <span className="text-amber-400 font-bold text-2xl">R\$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira trabalhando com sobrancelhas.
           </p>
           
           <Button 
             onClick={(e) => handleCTA(e, 'final')}
             disabled={isLoading}
-            className="btn-primary-mobile text-lg py-5 px-8 gpu-accelerated"
+            className="btn-primary-mobile text-lg py-6 px-8 gpu-accelerated mb-4"
             aria-label="Transformar minha vida agora com o curso de design de sobrancelhas"
           >
             {isLoading ? (
@@ -839,14 +1253,14 @@ export default function Home() {
               </span>
             ) : (
               <span className="flex items-center justify-center">
-                QUERO TRANSFORMAR MINHA VIDA
-                <Heart className="ml-2 w-6 h-6" />
+                GARANTIR ANTES QUE ACABE
+                <AlertTriangle className="ml-2 w-6 h-6" />
               </span>
             )}
           </Button>
           
-          <p className="text-slate-300 mt-4 text-sm">
-            ⚡ Acesso imediato • 🛡️ Garantia 7 dias • 💎 Zero riscos
+          <p className="text-slate-300 text-sm">
+            ⚡ Acesso imediato • 🛡️ Garantia 7 dias • 💎 Zero riscos • 🎯 Se paga no 1º cliente
           </p>
         </div>
       </section>
@@ -855,6 +1269,9 @@ export default function Home() {
       <footer className="py-6 px-4 border-t border-slate-700/50">
         <div className="max-w-4xl mx-auto text-center text-slate-400 text-sm">
           <p>© 2024 Amanda Teixeira Oficial - Todos os direitos reservados</p>
+          <p className="mt-2 text-xs">
+            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
+          </p>
         </div>
       </footer>
     </main>
