@@ -380,16 +380,6 @@ export default function Home() {
             </Badge>
           </div>
 
-          {/* ✅ NOVA ESCASSEZ MAIS AGRESSIVA */}
-          <div className="bg-red-500/20 border border-red-400 rounded-lg p-3 mb-6">
-            <p className="text-red-300 text-sm font-bold text-center">
-              ⚠️ ÚLTIMAS {vagasRestantes} VAGAS - Após esgotar, próxima turma apenas em MARÇO por R$ 497
-            </p>
-            <p className="text-red-300 text-xs text-center mt-1">
-              +{novasVagas24h} mulheres garantiram vaga nas últimas 24h
-            </p>
-          </div>
-
           {/* ✅ HEADLINE MAIS IMPACTANTE */}
           <h1 className="headline-mobile">
             GANHE R$ 2.500+ POR MÊS FAZENDO SOBRANCELHAS<br />
@@ -946,7 +936,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-sm mb-2">
-                      "Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R\$2.500! Mudou minha vida."
+                      "Bônus de atração foi divisor de águas! 12 novas clientes em 1 mês. Renda extra de R$2.500! Mudou minha vida."
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -972,7 +962,7 @@ export default function Home() {
                   />
                   <div>
                     <p className="text-slate-200 text-sm mb-2">
-                      "Saí do desemprego para R\$ 3.200/mês em 3 meses. Hoje tenho meu próprio studio. Gratidão eterna à Amanda!"
+                      "Saí do desemprego para R$ 3.200/mês em 3 meses. Hoje tenho meu próprio studio. Gratidão eterna à Amanda!"
                     </p>
                     <div className="flex text-amber-400 mb-1" aria-label="5 estrelas">
                       {[...Array(5)].map((_, i) => (
@@ -1043,7 +1033,7 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-white mb-8">
-            Recapitulando: Tudo o que você leva hoje por apenas <span className="text-amber-400">R\$ 37</span>
+            Recapitulando: Tudo o que você leva hoje por apenas <span className="text-amber-400">R$ 37</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -1086,8 +1076,8 @@ export default function Home() {
             <Card className="glass-card-mobile p-6">
               <CardContent className="p-0 text-center">
                 <div className="mb-4">
-                  <div className="text-slate-400 line-through text-lg">De: R\$ 297,00</div>
-                  <div className="text-4xl font-bold text-amber-400">R\$ 37</div>
+                  <div className="text-slate-400 line-through text-lg">De: R$ 297,00</div>
+                  <div className="text-4xl font-bold text-amber-400">R$ 37</div>
                   <div className="text-slate-300">Pagamento único</div>
                 </div>
                 
@@ -1222,7 +1212,7 @@ export default function Home() {
               🚨 ÚLTIMAS {vagasRestantes} VAGAS DISPONÍVEIS
             </p>
             <p className="text-red-300 text-sm text-center mt-1">
-              Após esgotar, próxima turma apenas em MARÇO por R\$ 497
+              Após esgotar, próxima turma apenas em Novembro por R$ 497
             </p>
             <p className="text-red-300 text-xs text-center mt-2">
               +{novasVagas24h} mulheres garantiram vaga nas últimas 24h
@@ -1233,7 +1223,7 @@ export default function Home() {
             🚀 TRANSFORME SUA VIDA AGORA!
           </h2>
           <p className="text-lg text-slate-300 mb-6">
-            Por apenas <span className="text-amber-400 font-bold text-2xl">R\$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira trabalhando com sobrancelhas.
+            Por apenas <span className="text-amber-400 font-bold text-2xl">R$ 37,00</span> você tem acesso a tudo que precisa para conquistar sua independência financeira trabalhando com sobrancelhas.
           </p>
           
           <Button 
