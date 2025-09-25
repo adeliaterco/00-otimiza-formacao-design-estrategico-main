@@ -369,7 +369,7 @@ export default function Home() {
 
       {/* ✅ HERO SECTION OTIMIZADA PARA MOBILE */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-2 py-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-900 overflow-x-hidden"></div>
         
         <div className="glass-hero max-w-5xl mx-auto relative z-10 fade-in-mobile">
           
