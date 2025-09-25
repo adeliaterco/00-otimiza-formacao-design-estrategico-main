@@ -4,46 +4,104 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* ✨ NOVA PALETA PREMIUM BELEZA 2025/2026 */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  
+  /* 🎯 CORES PRINCIPAIS ATUALIZADAS */
+  --primary: oklch(0.65 0.12 35);          /* Terracotta moderno */
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --secondary: oklch(0.92 0.02 85);        /* Pérola champagne */
+  --secondary-foreground: oklch(0.25 0.02 270);
+  --muted: oklch(0.95 0.01 65);            /* Creme quente */
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.72 0.15 25);           /* Coral vivo */
+  --accent-foreground: oklch(0.985 0 0);
+  
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  
+  /* 📊 CHARTS COM PALETA BELEZA */
+  --chart-1: oklch(0.72 0.15 25);         /* Coral vivo */
+  --chart-2: oklch(0.75 0.08 135);        /* Verde sage */
+  --chart-3: oklch(0.65 0.12 35);         /* Terracotta */
+  --chart-4: oklch(0.82 0.08 15);         /* Blush natural */
+  --chart-5: oklch(0.78 0.12 75);         /* Ouro rosé */
+  
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  
+  /* 🎨 SIDEBAR COM NOVA PALETA */
+  --sidebar: oklch(0.95 0.01 65);         /* Creme quente */
+  --sidebar-foreground: oklch(0.25 0.02 270);
+  --sidebar-primary: oklch(0.65 0.12 35);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.92 0.02 85);
+  --sidebar-accent-foreground: oklch(0.25 0.02 270);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* VARIÁVEIS CUSTOMIZADAS PARA DESIGN DE SOBRANCELHAS */
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  /* 🌟 NOVA PALETA EXCLUSIVA BELEZA 2025 */
+  --beauty-nude: oklch(0.85 0.03 45);          /* Nude rosado premium */
+  --beauty-terracotta: oklch(0.65 0.12 35);    /* Terracotta moderno */
+  --beauty-sage: oklch(0.75 0.08 135);         /* Verde sage luxo */
+  --beauty-pearl: oklch(0.92 0.02 85);         /* Pérola champagne */
+  --beauty-coral: oklch(0.72 0.15 25);         /* Coral vivo 2025 */
+  --beauty-gold: oklch(0.78 0.12 75);          /* Ouro rosé */
+  --beauty-blush: oklch(0.82 0.08 15);         /* Blush natural */
+  --beauty-charcoal: oklch(0.25 0.02 270);     /* Carvão suave */
+  --beauty-cream: oklch(0.95 0.01 65);         /* Creme quente */
+  --beauty-taupe: oklch(0.55 0.04 45);         /* Taupe moderno */
+  
+  /* 🎨 GRADIENTES PREMIUM 2025/2026 */
+  --primary-gradient: linear-gradient(135deg, 
+    var(--beauty-nude) 0%, 
+    var(--beauty-coral) 100%);
+    
+  --gold-gradient: linear-gradient(135deg, 
+    var(--beauty-gold) 0%, 
+    var(--beauty-terracotta) 100%);
+    
+  --success-gradient: linear-gradient(135deg, 
+    var(--beauty-sage) 0%, 
+    oklch(0.70 0.10 140) 100%);
+    
+  --beauty-gradient-luxury: linear-gradient(135deg, 
+    var(--beauty-gold) 0%, 
+    var(--beauty-terracotta) 100%);
+    
+  --beauty-gradient-natural: linear-gradient(135deg, 
+    var(--beauty-pearl) 0%, 
+    var(--beauty-blush) 100%);
+    
+  --beauty-gradient-sophisticated: linear-gradient(135deg,
+    var(--beauty-taupe) 0%,
+    var(--beauty-charcoal) 100%);
+    
+  /* 🌈 GRADIENTES PARA DIFERENTES TONS DE PELE */
+  --beauty-skin-light: linear-gradient(135deg,
+    oklch(0.88 0.02 55) 0%,
+    oklch(0.85 0.03 45) 100%);
+    
+  --beauty-skin-medium: linear-gradient(135deg,
+    oklch(0.72 0.06 45) 0%,
+    oklch(0.65 0.12 35) 100%);
+    
+  --beauty-skin-deep: linear-gradient(135deg,
+    oklch(0.45 0.08 35) 0%,
+    oklch(0.35 0.06 25) 100%);
+  
+  /* 🔮 EFEITOS GLASS PREMIUM */
   --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-bg-beauty: rgba(234, 179, 156, 0.08);  /* Tom terracotta suave */
+  --glass-border-beauty: rgba(234, 179, 156, 0.15);
 }
 
 .dark {
@@ -53,27 +111,33 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  
+  /* 🌙 MODO ESCURO COM PALETA BELEZA */
+  --primary: oklch(0.72 0.15 25);          /* Coral mais vibrante no escuro */
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.78 0.12 75);           /* Ouro rosé no escuro */
   --accent-foreground: oklch(0.985 0 0);
+  
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  
+  /* 📊 CHARTS MODO ESCURO */
+  --chart-1: oklch(0.75 0.18 25);         /* Coral mais intenso */
+  --chart-2: oklch(0.78 0.12 135);        /* Sage mais vibrante */
+  --chart-3: oklch(0.70 0.15 35);         /* Terracotta intenso */
+  --chart-4: oklch(0.85 0.12 15);         /* Blush vibrante */
+  --chart-5: oklch(0.82 0.15 75);         /* Ouro intenso */
+  
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.72 0.15 25);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -83,6 +147,9 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-display: var(--font-poppins);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -107,10 +174,24 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  
+  /* 🎨 NOVAS CORES BELEZA DISPONÍVEIS NO TAILWIND */
+  --color-beauty-nude: var(--beauty-nude);
+  --color-beauty-terracotta: var(--beauty-terracotta);
+  --color-beauty-sage: var(--beauty-sage);
+  --color-beauty-pearl: var(--beauty-pearl);
+  --color-beauty-coral: var(--beauty-coral);
+  --color-beauty-gold: var(--beauty-gold);
+  --color-beauty-blush: var(--beauty-blush);
+  --color-beauty-charcoal: var(--beauty-charcoal);
+  --color-beauty-cream: var(--beauty-cream);
+  --color-beauty-taupe: var(--beauty-taupe);
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -143,41 +224,46 @@
   }
 }
 
-/* ✅ NOVAS CLASSES MOBILE OTIMIZADAS */
+/* ✅ CLASSES MOBILE OTIMIZADAS COM NOVA PALETA */
 @layer components {
-  /* ✅ HEADLINES MOBILE OTIMIZADAS */
+  /* ✅ HEADLINES PREMIUM COM TIPOGRAFIA SOFISTICADA */
   .headline-mobile {
-    font-size: 1.5rem; /* 24px - Reduzido significativamente */
-    line-height: 1.3; /* Mais compacto */
+    font-family: var(--font-display), var(--font-sans), system-ui;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.3;
     font-weight: 800;
     text-align: center;
     color: white;
-    margin-bottom: 1rem; /* Reduzido de 1.5rem */
+    margin-bottom: 1rem;
     padding: 0 0.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f59e0b 100%);
+    background: var(--beauty-gradient-luxury);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .headline-mobile span {
     display: block;
-    font-size: 1rem; /* 16px para subtítulo */
+    font-size: 1rem; /* 16px */
     line-height: 1.4;
     margin-top: 0.5rem;
     font-weight: 600;
+    font-family: var(--font-sans);
   }
 
   .subtitle-mobile {
-    font-size: 0.95rem; /* 15px - Reduzido */
+    font-family: var(--font-sans);
+    font-size: 0.95rem; /* 15px */
     line-height: 1.4;
     text-align: center;
-    color: rgb(203 213 225);
-    margin-bottom: 1.5rem; /* Reduzido de 2rem */
+    color: var(--beauty-cream);
+    margin-bottom: 1.5rem;
     padding: 0 0.5rem;
   }
 
   .section-title-mobile {
+    font-family: var(--font-display), var(--font-sans);
     font-size: 1.875rem; /* 30px */
     line-height: 1.2;
     font-weight: 700;
@@ -187,26 +273,30 @@
     padding: 0 0.5rem;
   }
 
-  /* ✅ GLASS HERO COMPACTO */
+  /* ✅ GLASS HERO COM NOVA PALETA */
   .glass-hero {
-    background: rgba(15, 23, 42, 0.8);
+    background: var(--glass-bg-beauty);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border-beauty);
     border-radius: 1.5rem;
-    padding: 1.5rem; /* Reduzido de 2rem */
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(234, 179, 156, 0.1);
   }
 
   .glass-card-mobile {
-    background: rgba(255, 255, 255, 0.04) !important;
+    background: var(--glass-bg-beauty) !important;
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid var(--glass-border-beauty) !important;
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(234, 179, 156, 0.05);
   }
 
   .glass-card-mobile:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(234, 179, 156, 0.12) !important;
+    border-color: var(--beauty-coral) !important;
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(234, 179, 156, 0.15);
   }
 
   /* ✅ FADE IN MOBILE SUAVE */
@@ -225,7 +315,7 @@
     }
   }
 
-  /* 📱 BOTÃO CTA MOBILE OTIMIZADO */
+  /* 📱 BOTÃO CTA PREMIUM BELEZA 2025 */
   .btn-primary-mobile {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
@@ -235,18 +325,19 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    background: var(--gold-gradient) !important;
+    background: var(--beauty-gradient-luxury) !important;
     color: #ffffff !important;
     border: none;
     padding: 16px 32px;
     font-size: clamp(1rem, 3.5vw, 1.1rem);
     font-weight: 700;
+    font-family: var(--font-display), var(--font-sans);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+    box-shadow: 0 8px 25px rgba(199, 125, 89, 0.4); /* Sombra terracotta */
     overflow: hidden;
     width: 100%;
     max-width: 380px;
@@ -275,7 +366,10 @@
 
   .btn-primary-mobile:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(251, 191, 36, 0.5);
+    box-shadow: 0 12px 30px rgba(199, 125, 89, 0.5);
+    background: linear-gradient(135deg, 
+      oklch(0.82 0.15 75) 0%, 
+      oklch(0.68 0.15 35) 100%) !important;
   }
 
   .btn-primary-mobile:active {
@@ -289,7 +383,7 @@
   }
   
   .btn-primary-mobile:focus-visible {
-    outline: 2px solid #fbbf24;
+    outline: 2px solid var(--beauty-coral);
     outline-offset: 2px;
   }
   
@@ -300,44 +394,45 @@
     }
   }
 
-  /* ✅ TIMER COMPACTO MELHORADO */
+  /* ✅ TIMER COM NOVA PALETA */
   .timer-compact {
     background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.4);
+    border: 1px solid var(--beauty-coral);
     border-radius: 12px;
     padding: 12px 16px;
     text-align: center;
     backdrop-filter: blur(8px);
-    animation: pulse-subtle 3s infinite;
+    animation: pulse-beauty 3s infinite;
   }
 
-  @keyframes pulse-subtle {
+  @keyframes pulse-beauty {
     0%, 100% { 
-      box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
-      border-color: rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 15px rgba(184, 122, 64, 0.3);
+      border-color: var(--beauty-coral);
     }
     50% { 
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
-      border-color: rgba(239, 68, 68, 0.6);
+      box-shadow: 0 0 25px rgba(184, 122, 64, 0.5);
+      border-color: var(--beauty-gold);
     }
   }
 
   .timer-digit-small {
     font-size: clamp(1.3rem, 4vw, 1.6rem);
     font-weight: 800;
-    color: #fca5a5;
-    text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+    color: var(--beauty-coral);
+    text-shadow: 0 0 10px rgba(184, 122, 64, 0.6);
+    font-family: var(--font-display);
   }
 
-  /* ✅ BADGES DE PROVA SOCIAL MELHORADOS */
+  /* ✅ BADGES COM NOVA PALETA */
   .social-proof-badge {
-    background: rgba(16, 185, 129, 0.15) !important;
-    border: 1px solid rgba(16, 185, 129, 0.4) !important;
+    background: rgba(192, 132, 105, 0.15) !important; /* Tom terracotta suave */
+    border: 1px solid var(--beauty-sage) !important;
     border-radius: 50px;
     padding: 8px 16px;
     font-size: clamp(0.75rem, 2.5vw, 0.875rem);
     font-weight: 600;
-    color: #34d399 !important;
+    color: var(--beauty-sage) !important;
     backdrop-filter: blur(8px);
     animation: float-gentle 4s ease-in-out infinite;
   }
@@ -347,14 +442,15 @@
     50% { transform: translateY(-3px); }
   }
 
-  /* ✅ CALCULADORA MOBILE MELHORADA */
+  /* ✅ CALCULADORA COM GRADIENTE SOFISTICADO */
   .calculator-mobile {
-    background: var(--success-gradient);
+    background: var(--beauty-gradient-sophisticated);
     border-radius: 16px;
     padding: 1.5rem;
     color: #ffffff;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 15px 35px rgba(87, 67, 56, 0.3);
+    border: 1px solid var(--beauty-taupe);
   }
 
   .earning-row {
@@ -362,57 +458,66 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     margin-bottom: 8px;
     font-weight: 600;
     font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     min-height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .earning-value {
     font-size: clamp(1rem, 3vw, 1.2rem);
     font-weight: 800;
-    color: #ffffff;
+    color: var(--beauty-gold);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
-  /* ✅ SEÇÃO DE PREÇO OTIMIZADA */
+  /* ✅ SEÇÃO DE PREÇO COM GRADIENTE LUXUOSO */
   .price-section-mobile {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    background: linear-gradient(135deg, 
+      oklch(0.20 0.02 270) 0%, 
+      oklch(0.30 0.04 280) 100%);
     border-radius: 20px;
     padding: 2rem 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border: 2px solid var(--beauty-gold);
+    box-shadow: 0 20px 40px rgba(199, 125, 89, 0.2);
   }
 
   .price-old-mobile {
     font-size: clamp(1.1rem, 3vw, 1.3rem);
     text-decoration: line-through;
-    color: #cbd5e1;
+    color: var(--beauty-taupe);
     margin-bottom: 0.5rem;
   }
 
   .price-new-mobile {
     font-size: clamp(2.8rem, 10vw, 3.8rem);
     font-weight: 800;
-    background: var(--gold-gradient);
+    font-family: var(--font-display);
+    background: var(--beauty-gradient-luxury);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
     line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  /* ✅ DEPOIMENTOS COMPACTOS MELHORADOS */
+  /* ✅ DEPOIMENTOS COM ESTILO SOFISTICADO */
   .testimonial-compact {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: var(--glass-bg-beauty) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--beauty-pearl) !important;
     border-radius: 16px;
     padding: 1rem;
     margin-bottom: 1rem;
     position: relative;
+    box-shadow: 0 4px 16px rgba(234, 179, 156, 0.1);
   }
 
   .testimonial-compact::before {
@@ -421,12 +526,12 @@
     top: -5px;
     left: 15px;
     font-size: 2rem;
-    color: #fbbf24;
-    font-family: 'Playfair Display', serif;
+    color: var(--beauty-gold);
+    font-family: var(--font-serif), 'Playfair Display', serif;
     line-height: 1;
   }
 
-  /* ✅ LOADING SPINNER MELHORADO */
+  /* ✅ LOADING SPINNER PREMIUM */
   .loading-dots {
     display: inline-flex;
     gap: 4px;
@@ -455,12 +560,63 @@
     transform: translateZ(0);
     backface-visibility: hidden;
   }
+
+  /* 🎨 CLASSES UTILITÁRIAS PARA NOVA PALETA */
+  .bg-beauty-gradient {
+    background: var(--beauty-gradient-luxury);
+  }
+  
+  .text-beauty-gradient {
+    background: var(--beauty-gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .border-beauty-glow {
+    border: 1px solid var(--beauty-coral);
+    box-shadow: 0 0 20px rgba(184, 122, 64, 0.3);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* 🎨 UTILITÁRIOS PARA CORES BELEZA */
+  .text-beauty-nude { color: var(--beauty-nude); }
+  .text-beauty-terracotta { color: var(--beauty-terracotta); }
+  .text-beauty-sage { color: var(--beauty-sage); }
+  .text-beauty-pearl { color: var(--beauty-pearl); }
+  .text-beauty-coral { color: var(--beauty-coral); }
+  .text-beauty-gold { color: var(--beauty-gold); }
+  .text-beauty-blush { color: var(--beauty-blush); }
+  .text-beauty-charcoal { color: var(--beauty-charcoal); }
+  .text-beauty-cream { color: var(--beauty-cream); }
+  .text-beauty-taupe { color: var(--beauty-taupe); }
+  
+  .bg-beauty-nude { background-color: var(--beauty-nude); }
+  .bg-beauty-terracotta { background-color: var(--beauty-terracotta); }
+  .bg-beauty-sage { background-color: var(--beauty-sage); }
+  .bg-beauty-pearl { background-color: var(--beauty-pearl); }
+  .bg-beauty-coral { background-color: var(--beauty-coral); }
+  .bg-beauty-gold { background-color: var(--beauty-gold); }
+  .bg-beauty-blush { background-color: var(--beauty-blush); }
+  .bg-beauty-charcoal { background-color: var(--beauty-charcoal); }
+  .bg-beauty-cream { background-color: var(--beauty-cream); }
+  .bg-beauty-taupe { background-color: var(--beauty-taupe); }
+  
+  .border-beauty-nude { border-color: var(--beauty-nude); }
+  .border-beauty-terracotta { border-color: var(--beauty-terracotta); }
+  .border-beauty-sage { border-color: var(--beauty-sage); }
+  .border-beauty-pearl { border-color: var(--beauty-pearl); }
+  .border-beauty-coral { border-color: var(--beauty-coral); }
+  .border-beauty-gold { border-color: var(--beauty-gold); }
+  .border-beauty-blush { border-color: var(--beauty-blush); }
+  .border-beauty-charcoal { border-color: var(--beauty-charcoal); }
+  .border-beauty-cream { border-color: var(--beauty-cream); }
+  .border-beauty-taupe { border-color: var(--beauty-taupe); }
 }
 
 /* ✅ RESPONSIVIDADE ESPECÍFICA PARA MOBILE */
@@ -517,13 +673,8 @@ button:hover {
 
 /* Pulse animation for urgency elements */
 @keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
 }
 
 .animate-pulse {
@@ -588,7 +739,7 @@ button:hover {
 /* ✅ MODO ESCURO MELHORADO */
 @media (prefers-color-scheme: dark) {
   .subtitle-mobile {
-    color: #f8fafc;
+    color: var(--beauty-cream);
   }
 }
 
@@ -629,7 +780,7 @@ vturb-smartplayer {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
-  min-height: 250px !important; /* ✅ REDUZIDO DE 300px */
+  min-height: 250px !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   position: relative !important;
@@ -693,9 +844,9 @@ vturb-smartplayer video {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: var(--beauty-gradient-sophisticated);
   border-radius: 12px;
-  z-index: 5 !important; /* ✅ MENOR QUE O PLAYER */
+  z-index: 5 !important;
   transition: opacity 0.5s ease;
 }
 
