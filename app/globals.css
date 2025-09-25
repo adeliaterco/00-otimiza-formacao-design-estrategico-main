@@ -4,95 +4,81 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ✨ PALETA ROSE GOLD LUXE - INSPIRADA EM NATALIA BEAUTY */
-  --background: oklch(0.98 0.01 15); /* Nude rosé suave */
-  --foreground: oklch(0.15 0.02 25); /* Marrom chocolate elegante */
-  --card: oklch(0.97 0.015 20); /* Champagne sutil */
-  --card-foreground: oklch(0.15 0.02 25);
-  --popover: oklch(0.97 0.015 20);
-  --popover-foreground: oklch(0.15 0.02 25);
-  --primary: oklch(0.45 0.15 35); /* Rose gold profundo */
-  --primary-foreground: oklch(0.98 0.01 15);
-  --secondary: oklch(0.94 0.02 25); /* Nude rosé */
-  --secondary-foreground: oklch(0.25 0.03 30);
-  --muted: oklch(0.95 0.015 22);
-  --muted-foreground: oklch(0.55 0.02 28);
-  --accent: oklch(0.92 0.03 35); /* Coral suave */
-  --accent-foreground: oklch(0.25 0.03 30);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.02 25); /* Nude elegante */
-  --input: oklch(0.90 0.02 25);
-  --ring: oklch(0.65 0.12 35); /* Rose gold ring */
-  --chart-1: oklch(0.65 0.18 35); /* Rose gold */
-  --chart-2: oklch(0.72 0.15 45); /* Coral elegante */
-  --chart-3: oklch(0.58 0.12 25); /* Terracota */
-  --chart-4: oklch(0.75 0.10 55); /* Champagne */
-  --chart-5: oklch(0.68 0.14 15); /* Nude rosé */
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: oklch(0.96 0.015 20);
-  --sidebar-foreground: oklch(0.15 0.02 25);
-  --sidebar-primary: oklch(0.45 0.15 35);
-  --sidebar-primary-foreground: oklch(0.98 0.01 15);
-  --sidebar-accent: oklch(0.92 0.03 35);
-  --sidebar-accent-foreground: oklch(0.25 0.03 30);
-  --sidebar-border: oklch(0.90 0.02 25);
-  --sidebar-ring: oklch(0.65 0.12 35);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 
-  /* ✨ GRADIENTES PREMIUM DE BELEZA */
-  --primary-gradient: linear-gradient(135deg, 
-    oklch(0.75 0.15 35) 0%,    /* Rose gold claro */
-    oklch(0.65 0.18 45) 50%,   /* Coral dourado */
-    oklch(0.55 0.20 35) 100%   /* Rose gold profundo */
-  );
-  --gold-gradient: linear-gradient(135deg, 
-    oklch(0.85 0.12 55) 0%,    /* Champagne luminoso */
-    oklch(0.75 0.15 45) 50%,   /* Dourado rosé */
-    oklch(0.65 0.18 35) 100%   /* Rose gold */
-  );
-  --success-gradient: linear-gradient(135deg, 
-    oklch(0.78 0.15 45) 0%,    /* Coral suave */
-    oklch(0.68 0.18 40) 50%,   /* Terracota elegante */
-    oklch(0.58 0.20 35) 100%   /* Coral profundo */
-  );
-  --glass-bg: rgba(248, 240, 235, 0.12); /* Nude com transparência */
-  --glass-border: rgba(218, 165, 140, 0.25); /* Rose gold sutil */
+  /* VARIÁVEIS CUSTOMIZADAS PARA DESIGN DE SOBRANCELHAS */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
 }
 
 .dark {
-  /* ✨ MODO ESCURO SOFISTICADO */
-  --background: oklch(0.12 0.02 25); /* Marrom escuro elegante */
-  --foreground: oklch(0.92 0.02 25); /* Nude claro */
-  --card: oklch(0.15 0.02 25);
-  --card-foreground: oklch(0.92 0.02 25);
-  --popover: oklch(0.15 0.02 25);
-  --popover-foreground: oklch(0.92 0.02 25);
-  --primary: oklch(0.75 0.15 35); /* Rose gold luminoso */
-  --primary-foreground: oklch(0.12 0.02 25);
-  --secondary: oklch(0.22 0.03 30);
-  --secondary-foreground: oklch(0.92 0.02 25);
-  --muted: oklch(0.20 0.02 28);
-  --muted-foreground: oklch(0.65 0.03 30);
-  --accent: oklch(0.25 0.04 35);
-  --accent-foreground: oklch(0.92 0.02 25);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.25 0.03 30);
-  --input: oklch(0.25 0.03 30);
-  --ring: oklch(0.75 0.15 35);
-  --chart-1: oklch(0.75 0.15 35);
-  --chart-2: oklch(0.72 0.15 45);
-  --chart-3: oklch(0.68 0.14 15);
-  --chart-4: oklch(0.70 0.12 55);
-  --chart-5: oklch(0.65 0.18 35);
-  --sidebar: oklch(0.18 0.02 28);
-  --sidebar-foreground: oklch(0.92 0.02 25);
-  --sidebar-primary: oklch(0.75 0.15 35);
-  --sidebar-primary-foreground: oklch(0.12 0.02 25);
-  --sidebar-accent: oklch(0.25 0.04 35);
-  --sidebar-accent-foreground: oklch(0.92 0.02 25);
-  --sidebar-border: oklch(0.25 0.03 30);
-  --sidebar-ring: oklch(0.75 0.15 35);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
@@ -168,11 +154,7 @@
     color: white;
     margin-bottom: 1rem; /* Reduzido de 1.5rem */
     padding: 0 0.5rem;
-    background: linear-gradient(135deg, 
-      oklch(0.95 0.02 15) 0%, 
-      oklch(0.85 0.12 45) 50%, 
-      oklch(0.75 0.15 35) 100%
-    );
+    background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -190,7 +172,7 @@
     font-size: 0.95rem; /* 15px - Reduzido */
     line-height: 1.4;
     text-align: center;
-    color: oklch(0.75 0.03 25);
+    color: rgb(203 213 225);
     margin-bottom: 1.5rem; /* Reduzido de 2rem */
     padding: 0 0.5rem;
   }
@@ -205,29 +187,26 @@
     padding: 0 0.5rem;
   }
 
-  /* ✅ GLASS HERO COMPACTO COM PALETA SOFISTICADA */
+  /* ✅ GLASS HERO COMPACTO */
   .glass-hero {
-    background: rgba(248, 240, 235, 0.15);
+    background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(218, 165, 140, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
     padding: 1.5rem; /* Reduzido de 2rem */
-    box-shadow: 0 25px 50px rgba(218, 165, 140, 0.1);
   }
 
   .glass-card-mobile {
-    background: var(--glass-bg) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
     backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 25px rgba(218, 165, 140, 0.08);
   }
 
   .glass-card-mobile:hover {
-    background: rgba(248, 240, 235, 0.2) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(218, 165, 140, 0.15);
   }
 
   /* ✅ FADE IN MOBILE SUAVE */
@@ -246,7 +225,7 @@
     }
   }
 
-  /* 📱 BOTÃO CTA MOBILE OTIMIZADO COM PALETA PREMIUM */
+  /* 📱 BOTÃO CTA MOBILE OTIMIZADO */
   .btn-primary-mobile {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
@@ -267,7 +246,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(218, 165, 140, 0.4);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 380px;
@@ -296,7 +275,7 @@
 
   .btn-primary-mobile:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(218, 165, 140, 0.5);
+    box-shadow: 0 12px 30px rgba(251, 191, 36, 0.5);
   }
 
   .btn-primary-mobile:active {
@@ -310,7 +289,7 @@
   }
   
   .btn-primary-mobile:focus-visible {
-    outline: 2px solid oklch(0.75 0.15 35);
+    outline: 2px solid #fbbf24;
     outline-offset: 2px;
   }
   
@@ -350,15 +329,15 @@
     text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
   }
 
-  /* ✅ BADGES DE PROVA SOCIAL MELHORADOS COM PALETA SOFISTICADA */
+  /* ✅ BADGES DE PROVA SOCIAL MELHORADOS */
   .social-proof-badge {
-    background: rgba(120, 185, 129, 0.15) !important;
-    border: 1px solid rgba(120, 185, 129, 0.4) !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.4) !important;
     border-radius: 50px;
     padding: 8px 16px;
     font-size: clamp(0.75rem, 2.5vw, 0.875rem);
     font-weight: 600;
-    color: oklch(0.75 0.15 45) !important;
+    color: #34d399 !important;
     backdrop-filter: blur(8px);
     animation: float-gentle 4s ease-in-out infinite;
   }
@@ -368,14 +347,14 @@
     50% { transform: translateY(-3px); }
   }
 
-  /* ✅ CALCULADORA MOBILE MELHORADA COM GRADIENTE CORAL */
+  /* ✅ CALCULADORA MOBILE MELHORADA */
   .calculator-mobile {
     background: var(--success-gradient);
     border-radius: 16px;
     padding: 1.5rem;
     color: #ffffff;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(218, 165, 140, 0.2);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
   }
 
   .earning-row {
@@ -397,24 +376,20 @@
     color: #ffffff;
   }
 
-  /* ✅ SEÇÃO DE PREÇO OTIMIZADA COM GRADIENTE CHAMPAGNE */
+  /* ✅ SEÇÃO DE PREÇO OTIMIZADA */
   .price-section-mobile {
-    background: linear-gradient(135deg, 
-      oklch(0.25 0.03 30) 0%, 
-      oklch(0.20 0.04 35) 100%
-    );
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     border-radius: 20px;
     padding: 2rem 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--glass-border);
   }
 
   .price-old-mobile {
     font-size: clamp(1.1rem, 3vw, 1.3rem);
     text-decoration: line-through;
-    color: oklch(0.70 0.02 25);
+    color: #cbd5e1;
     margin-bottom: 0.5rem;
   }
 
@@ -429,16 +404,15 @@
     line-height: 1;
   }
 
-  /* ✅ DEPOIMENTOS COMPACTOS MELHORADOS COM PALETA SOFISTICADA */
+  /* ✅ DEPOIMENTOS COMPACTOS MELHORADOS */
   .testimonial-compact {
-    background: var(--glass-bg) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 16px;
     padding: 1rem;
     margin-bottom: 1rem;
     position: relative;
-    box-shadow: 0 8px 25px rgba(218, 165, 140, 0.08);
   }
 
   .testimonial-compact::before {
@@ -447,7 +421,7 @@
     top: -5px;
     left: 15px;
     font-size: 2rem;
-    color: oklch(0.75 0.15 35);
+    color: #fbbf24;
     font-family: 'Playfair Display', serif;
     line-height: 1;
   }
@@ -614,7 +588,7 @@ button:hover {
 /* ✅ MODO ESCURO MELHORADO */
 @media (prefers-color-scheme: dark) {
   .subtitle-mobile {
-    color: oklch(0.92 0.02 25);
+    color: #f8fafc;
   }
 }
 
@@ -719,10 +693,7 @@ vturb-smartplayer video {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, 
-    oklch(0.25 0.03 30) 0%, 
-    oklch(0.20 0.04 35) 100%
-  );
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   border-radius: 12px;
   z-index: 5 !important; /* ✅ MENOR QUE O PLAYER */
   transition: opacity 0.5s ease;
